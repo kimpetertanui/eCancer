@@ -9,19 +9,23 @@
  $email = $_POST['email'];
  $password = $_POST['password'];
  
- $Sql_Query = "select * from users where email = '$email' and password = '$password' ";
+ $Sql_Query = "SELECT * FROM users WHERE email = '$email' AND password = '$password' ";
  
  $check = mysqli_fetch_array(mysqli_query($con,$Sql_Query));
  
- if(isset($check)){
+ if(isset($check))
+ {
  
  echo "Data Matched";
  }
- else{
+ else
+ {
  echo "Invalid Email or Password Please Try Again";
  }
  
- }else{
+ }
+ else
+ {
  echo "Check Again";
  }
 mysqli_close($con);
