@@ -117,7 +117,6 @@
           <i class="fa fa-bars"></i>
           <span>Cancer Centers</span></a>
       </li>
-      
       <!-- <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
@@ -136,23 +135,23 @@
 
         <!-- Breadcrumbs--> <ol class="breadcrumb">   <li class="breadcrumb-
         item">     <a href="#">Dashboard</a>   </li>   <li class="breadcrumb-
-        item active"> Add Dianostic Test</li> </ol>
+        item active">::Add Cancer Center</li> </ol>
 
        
       
 <!--start of form-->
 <hr>
 <div class="container pt-1">
-<form action="add_tender.php" method="POST">
+<form action="add_cancer_center.php" method="POST">
 <div class="row">
   <div class="col-md-6">
   <div class="form-group">
-    <label for="question">Question</label>
-    <input type="text" name="question" class="form-control" id="question" aria-describedby="question" placeholder="Enter a Question">
+    <label for="name">Cancer Center Name</label>
+    <input type="text" name="name" class="form-control" id="name" aria-describedby="name" placeholder="Enter Cancer Center Name">
   </div>
   <div class="form-group">
-    <label for="possible_answers">Possible Answers</label>
-    <input type="text" name="possible_answers" class="form-control" id="possible_answers" aria-describedby="possible_answers" placeholder="Answer1,Answer2,Answer3,Answers4">
+    <label for="location">Location</label>
+    <input type="text" name="location" class="form-control" id="location" aria-describedby="location" placeholder="Enter Cancer Center Location">
   </div>
   </div>
  <!--  <div class="col-md-6">
@@ -175,8 +174,8 @@
     <div class="col-md-6">
 
       <div class="form-group">
-    <label for="correct_answer">Correct Answer</label>
-    <input type="text" name="correct_answer" class="form-control" id="correct_answer" aria-describedby="correct_answer" placeholder="Enter a number e.g 3">
+    <label for="description">Cancer Center Details</label>
+    <input type="text" name="description" class="form-control" id="description" aria-describedby="description" placeholder="Enter Cancer Center Details">
   </div>
 
   </div>

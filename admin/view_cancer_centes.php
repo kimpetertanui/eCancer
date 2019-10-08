@@ -26,7 +26,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Diagonsis Test</a>
+    <a class="navbar-brand mr-1" href="index.html">RollOut Cancer</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -117,7 +117,6 @@
           <i class="fa fa-bars"></i>
           <span>Cancer Centers</span></a>
       </li>
-      
       <!-- <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
@@ -136,60 +135,73 @@
 
         <!-- Breadcrumbs--> <ol class="breadcrumb">   <li class="breadcrumb-
         item">     <a href="#">Dashboard</a>   </li>   <li class="breadcrumb-
-        item active"> Add Dianostic Test</li> </ol>
+        item active">::All Cancer Centers in Kenya</li> </ol>
 
        
       
 <!--start of form-->
 <hr>
 <div class="container pt-1">
-<form action="add_tender.php" method="POST">
-<div class="row">
-  <div class="col-md-6">
-  <div class="form-group">
-    <label for="question">Question</label>
-    <input type="text" name="question" class="form-control" id="question" aria-describedby="question" placeholder="Enter a Question">
-  </div>
-  <div class="form-group">
-    <label for="possible_answers">Possible Answers</label>
-    <input type="text" name="possible_answers" class="form-control" id="possible_answers" aria-describedby="possible_answers" placeholder="Answer1,Answer2,Answer3,Answers4">
-  </div>
-  </div>
- <!--  <div class="col-md-6">
-    <div class="form-group">
-    <label for="correct_answer"">Sub County</label>
-    <input type="text" name="correct_answer" class="form-control" id="correct_answer"" aria-describedby="correct_answer"" placeholder="Enter Your Sub County">
-  </div>
-  <div class="form-group">
-    <label for="tender_details">Description</label>
-    <input type="text" name="tender_details" class="form-control" id="tender_details" aria-describedby="tender_details" placeholder="Enter the Description">
-  </div>
-  </div> -->
-   <div class="col-md-6">
- <!--  <div class="form-group">
-    <label for="bid_amount">Bid Amount</label>
-    <input type="text" name="bid_amount" class="form-control" id="bid_amount" aria-describedby="bid_amount" placeholder="Enter  Bid Amount">
-  </div> -->
+<?php 
+$username = "root"; 
+$password = ""; 
+$database = "ecancer"; 
+$mysqli = new mysqli("localhost", $username, $password, $database); 
+$query = "SELECT * FROM cancer_centers";
+ 
+ 
+echo '<table border="0" class="table" cellspacing="2" cellpadding="2"> 
+      <tr> 
+          <th> <font face="Arial">Serial Number</font> </th>
+          <th> <font face="Arial">Cancer Center Full Name</font> </th>
+          <th> <font face="Arial">Locaion</font> </th> 
+          <th> <font face="Arial">Description</font> </th> 
     
-  </div>
-    <div class="col-md-6">
-
-      <div class="form-group">
-    <label for="correct_answer">Correct Answer</label>
-    <input type="text" name="correct_answer" class="form-control" id="correct_answer" aria-describedby="correct_answer" placeholder="Enter a number e.g 3">
-  </div>
-
-  </div>
-
+  
+      </tr>';
+ 
+if ($result = $mysqli->query($query)) {
+    while ($row = $result->fetch_assoc()) {
+        $field1name = $row["id"];
+        $field2name = $row["name"];
+        $field3name = $row["location"];
+        $field4name = $row["description"];
+  
+      
+ 
+        echo '<tr> 
+                  <td>'.$field1name.'</td> 
+                  <td>'.$field2name.'</td> 
+                  <td>'.$field3name.'</td> 
+                  <td>'.$field4name.'</td> 
+                
+                  
+              </tr>';
+    }
+    $result->free();
+} 
+?>
+      <!--   <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tea</td>
+            <td>some tender desc</td>
+            <td>For Agriculture etc</td>
+            <td>Active</td>
+            <td><button class="btn btn-primary">Apply</button></td>
+          </tr>
+        </tbody>
+      </table> -->
 </div>
-  <hr>
-  <div class="row">
-    <div class="col text-center">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </div>
-</form>
-</div>
+
   <!--end of form-->
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
